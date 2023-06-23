@@ -80,12 +80,12 @@ require_once('../modelos/administrador.php');
                         <td><?php echo $key["Usuario"] ?></td>
                         <td><?php echo $key["Perfil"] ?></td>
                         <td><?php echo $key["Estado"] ?></td>
-                       <td> <a href="editar.php?Id=?" class="btn btn-success">Actualizar</a>
+                       <td> <a href="editar.php?Id=<?php echo $key['id_usuario']?>" class="btn btn-success">Actualizar</a>
 
                        </td>
                         
                         <td>
-                         <td> <a href="FeditarDatospacientes.php?id=?" class="btn btn-success">Eliminar</a>
+                         <td> <a href="../controladores/eliminarusuarios.php?Id=<?php echo $key['id_usuario']?>" class="btn btn-success">Eliminar</a>
 
                         </td>
                     </tr>

@@ -43,8 +43,7 @@
       <p>Estado: 
               <label for="perfil"></label>
               <select name="txtestado">
-                  <option></option>
-                <option value="Activo">Activo</option>
+               <option value="Activo">Activo</option>
                 <option value="No activo">No activo</option>
               </select>
             </p>

@@ -4,6 +4,7 @@ require_once('../modelos/administrador.php');
 if($_POST)
 {
 	$admin = new Administrador();
+	$id = $_POST['Id'];
 	$Nombreusu= $_POST['txtnombre'];
 	$Apellidousu=$_POST['txtapellido'];
 	$Usuariousu=$_POST['txtusuario'];
@@ -12,13 +13,13 @@ if($_POST)
 	$Estadousu=$_POST['txtestado'];
 
 
-$admin->addadmi($Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil,$Estadousu);
+$admin->updatead($id,$Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil,$Estadousu);
 if($admin){
-  	print "<script>alert(\"Usuario registrado\");
-		window.location='../pages/index.php';</script>";
+  	print "<script>alert(\"Medico registrado\");
+		window.location='../view/Principal.php';</script>";
   }else {
-  	print "<script>alert(\"No se puede registrar el usuario.\");
-		window.location='../pages/agregar.php';</script>";
+  	print "<script>alert(\"Fallo al ingresar los datos.\");
+		window.location='../index.php';</script>";
   }
 
 }

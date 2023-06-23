@@ -35,13 +35,12 @@ public function addadmi($Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil
    if($statement->execute())
    {
      
-     echo "Usuario registrado";
-     header('Location: ../pages/index.php');
-
+     print "<script>alert(\"Usuario registrado\");
+		window.location='../pages/index.php';</script>";
    }else
    {
-      echo "Usuario no registrado";
-      header('Location: ../pages/agregar.php');
+      print "<script>alert(\"No se puede registrar el usuario.\");
+		window.location='../pages/agregar.php';</script>";
 
    }
 
@@ -69,42 +68,46 @@ public function getadmin()
 //funcion para consultar el usuario de acuerdo a su id
 public function getidad($Id)
 {
-  $resultset=null;
-  //$statement=$this->db->prepare("SELECT * FROM usuarios WHERE id_usuario=:Id");
-  //$statement->bindParam(':Id',$Id);
-  //$statement->execute();
-  $sql = "SELECT * FROM usuarios WHERE id_usuario=:Id";
-   $result = $this->db->prepare($sql); 
-   $result->bindParam(':Id',$Id);
-        if ($result->rowCount() > 0) {
-            while($row = $result->fetch()) {
-                $resultset[] = $row;
-            }
-        }
-        return $resultset;
+  
+   $statement = $this->db->prepare("SELECT * FROM usuarios WHERE id_usuario = :Id");
+            $statement->bindParam(':Id', $Id);
+            $statement->execute();
+            
+            // Obtener los resultados utilizando fetch()
+            $resultado = $statement->fetch(PDO::FETCH_ASSOC);
+            
+            // Devolver los resultados
+            return $resultado;
+        
+    }
 
-  /*while($result->$statement->fetch()){
-  	$rows[]=$result;
-  }
-  return $rows;*/
-  }
+  
 
 //funcion actualizar los datos del usuario
-public function updatead($Id,$Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Estadousu)
+public function updatead($Id,$Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil,$Estadousu)
 {
-	$statement=$this->bd->prepare("UPDATE usuarios SET Nombreusu=:Nombreusu, Apellidousu=:Apellidousu, Usuario=:Usuariousu, Password=:Passwordusu, Estado=:Estadousu WHERE id_usaurio=$Id");
+	$statement=$this->db->prepare("UPDATE usuarios SET id_usuario=:Id,Nombreusu=:Nombreusu, Apellidousu=:Apellidousu, Usuario=:Usuariousu, Password=:Passwordusu,Perfil=:Perfil, Estado=:Estadousu WHERE id_usuario=$Id");
 	$statement->bindParam(':Id',$Id);
 	$statement->bindParam(':Nombreusu',$Nombreusu);
    $statement->bindParam(':Apellidousu',$Apellidousu);
    $statement->bindParam(':Usuariousu',$Usuariousu);
    $statement->bindParam(':Passwordusu',$Passwordusu);
+   $statement->bindParam(':Perfil',$Perfil);
    $statement->bindParam(':Estadousu',$Estadousu);
    if($statement->execute())
    {
-      header('Location: ../pages/index.php');
+   	 echo "<script>
+          alert('usuario actualizado');
+          window.location = '../pages/index.php';
+      </script>";  
+
    }else 
    {
-   	header('Location: ../pages/editar.php');
+   	 echo "<script>
+          alert('usuario no actualizado');
+          window.location = '../pages/editar.php';
+      </script>";  
+   	
    } 
 
 }
@@ -115,10 +118,19 @@ public function updatead($Id,$Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$E
 	$statement=$this->db->prepare("DELETE FROM usuarios WHERE id_usuario=:Id");
 	$statement->binParam(':Id',$Id);
 	if($statement->execute()){
-			header('Location: ../pages/index.php');
+		 echo "<script>
+          alert('usuario eliminado');
+          window.location = '../pages/index.php';
+      </script>";  
+
+			
 		}else
 		{
-			header('Location: ../pages/eliminar.php');
+				 echo "<script>
+          alert('usuario no puede ser eliminado');
+          window.location = '../pages/index.php';
+      </script>";  
+
 		}
 
 	}
