@@ -115,25 +115,19 @@ public function updatead($Id,$Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$P
 	//funcion para eliminar los usuarios
 	public function deleteusu($Id)
 	{
-	$statement=$this->db->prepare("DELETE FROM usuarios WHERE id_usuario=:Id");
-	$statement->binParam(':Id',$Id);
-	if($statement->execute()){
-		 echo "<script>
-          alert('usuario eliminado');
-          window.location = '../pages/index.php';
-      </script>";  
-
-			
-		}else
-		{
-				 echo "<script>
-          alert('usuario no puede ser eliminado');
-          window.location = '../pages/index.php';
-      </script>";  
-
-		}
-
-	}
+    
+	try {
+            $consulta = $this->db->prepare("DELETE FROM usuarios WHERE id_usuario = :Id");
+            $consulta->bindParam(':Id', $Id);
+            $resultado = $consulta->execute();
+            
+            // Devolver el resultado de la operación de eliminación
+            return $resultado;
+        } catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+            return false;
+        }
+    }
 
 
 	

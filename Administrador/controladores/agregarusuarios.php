@@ -7,7 +7,7 @@ if($_POST)
 	$Nombreusu= $_POST['txtnombre'];
 	$Apellidousu=$_POST['txtapellido'];
 	$Usuariousu=$_POST['txtusuario'];
-	$Passwordusu=MD5($_POST['txtcontrasena']);
+	$Passwordusu=$_POST['txtcontrasena'];
 	$Perfil=$_POST['txtperfil'];
 	$Estadousu=$_POST['txtestado'];
 

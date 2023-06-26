@@ -25,11 +25,11 @@
         <div class="p-5 bg-white rounded shadow-lg">
           <h3 class="mb-2 text-center pt-5">Inicio de sesión</h3>
           <p class="text-center lead">Para acceder a todas sus funciones</p>
-          <form>
+          <form action="Usuarios/controladores/ingreso.php" method="POST">
             <label class="font-500">Usuario</label>
-            <input name="txtusuario" class="form-control form-control-lg mb-3" type="text">
+            <input name="txtusuario" class="form-control form-control-lg mb-3" type="text" >
              <label class="font-500">Contraseña</label>
-            <input name="txtcontraseña" class="form-control form-control-lg" type="password">
+            <input name="txtcontrasena" class="form-control form-control-lg" type="password">
             <p class="m-0 py-4"><a href="" class="text-muted">Contraseña olvidada?</a></p>
             <button class="btn btn-primary btn-lg w-100 shadow-lg">Iniciar sesión</button>
           </form>

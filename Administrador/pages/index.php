@@ -1,3 +1,9 @@
+<?php
+
+require_once('../../modelos/login.php');
+$obj = new Usuario();
+$obj->validarsesion();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +22,7 @@
   </a>
    <ul class="navbar-nav">
     <li class="nav-item active">
-        <a class="nav-link" href="">Usuarios</a>
+        <a class="nav-link" href="../pages/agregar.php">Usuarios</a>
     </li>
   <ul class="navbar-nav">
     <li class="nav-item active">
@@ -85,8 +91,10 @@ require_once('../modelos/administrador.php');
                        </td>
                         
                         <td>
-                         <td> <a href="../controladores/eliminarusuarios.php?Id=<?php echo $key['id_usuario']?>" class="btn btn-success">Eliminar</a>
+                         <td> <a href="eliminar.php?Id=<?php echo $key['id_usuario']?>" class="btn btn-success">Eliminar</a>
 
+                       </td>
+                        
                         </td>
                     </tr>
                 <?php } ?>
