@@ -1,8 +1,8 @@
 <?php
 
-require_once('../../modelos/login.php');
-$obj = new Usuario();
-$obj->validarsesion();
+//require_once('../../modelos/login.php');
+//$obj = new Usuario();
+//$obj->validarsesion();
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,13 +26,13 @@ $obj->validarsesion();
     </li>
   <ul class="navbar-nav">
     <li class="nav-item active">
-        <a class="nav-link" href="">Docentes</a>
+        <a class="nav-link" href="../../Docentes/pages/agregar.php">Docentes</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="">Estudiantes</a>
+        <a class="nav-link" href="../../Estudiantes/pages/agregar.php">Estudiantes</a>
     </li>
      <li class="nav-item">
-        <a class="nav-link" href="">Materias</a>
+        <a class="nav-link" href="../../Materias/pages/agregar.php">Materias</a>
     </li>
      <li class="nav-item">
        <a href="cerrar_sesion.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
