@@ -53,7 +53,7 @@
    $me = new Metodo();
 
   ?>
-  <form action="../controladores/agregarusuarios.php" method="post">
+  <form action="../controladores/agregarestudiantes.php" method="post">
     <div class="form-group">
       <label >Nombre:</label>
       <input type="text" class="form-control" placeholder="Ingresar nombre del estudiante" name="txtnombreest">
@@ -81,6 +81,24 @@
                       foreach($mate as $ma){
                         ?>
                         <option value="<?php echo $ma['Nombremate'];?>"><?php echo $ma['Nombremate'];?></option>
+                        <?php
+                      }
+                     }
+                     ?>
+                      
+                </select>         
+    </div>
+    <div class="form-group">
+      <label >Seleccionar Docente:</label>
+     <select name="txtmateriaestu" class="form-control input-lg ">
+                   <option>Seleccionar</option>
+                     <?php
+                     $mate=$me->getdocentes();
+                     if($mate != null)
+                     {
+                      foreach($mate as $ma){
+                        ?>
+                        <option value="<?php echo $ma['Nombredo'];?>"><?php echo $ma['Nombredo'];?></option>
                         <?php
                       }
                      }
