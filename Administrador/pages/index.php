@@ -1,5 +1,5 @@
 <?php
-
+require_once('../../Usuarios/controladores/validar.php');
 //require_once('../../modelos/login.php');
 //$obj = new Usuario();
 //$obj->validarsesion();
@@ -35,7 +35,7 @@
         <a class="nav-link" href="../../Materias/pages/agregar.php">Materias</a>
     </li>
      <li class="nav-item">
-       <a href="cerrar_sesion.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+       <a href="../../Usuarios/controladores/salir.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
             
     </li>
   
@@ -45,7 +45,7 @@
 </nav>
  
         <br>
-      
+        <H1>Bienvenido: <?php echo $_SESSION["usuario"]; ?></H1>
         <div class="container">
  <h1 style="color:blue;text-align:center;">LISTADO DE USUARIOS</h1>
           
