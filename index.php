@@ -25,7 +25,7 @@
         <div class="p-5 bg-white rounded shadow-lg">
           <h3 class="mb-2 text-center pt-5">Inicio de sesión</h3>
           <p class="text-center lead">Para acceder a todas sus funciones</p>
-          <form action="Usuarios/controladores/controlusuarios.php" method="POST">
+          <form action="Usuarios/controladores/ingresousuarios.php" method="POST">
             <label class="font-500">Usuario</label>
             <input name="txtusuario" class="form-control form-control-lg mb-3" type="text" >
              <label class="font-500">Contraseña</label>

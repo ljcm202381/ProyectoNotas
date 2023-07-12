@@ -10,17 +10,17 @@ class Usuario extends Conexion
     	$this->db = parent:: __construct();
     }
 
-    public function login($usuario,$passwords)
+    public function login($Usuario,$Password)
     {
-     $statement = $this->db->prepare("SELECT id_usuario,Usuario,Password,Perfil,Estado FROM usuarios WHERE Usuario=:usuario AND Password:=paswords");
-
-   $statement->bindParam(':usuario',$usuario);
-   $statement->bindParam(':passwords',$passwords);
+    $statement = $this->db->prepare("SELECT * FROM usuarios WHERE Usuario=:Usuario AND Password=:Password");
+   $statement->bindParam(':Usuario',$Usuario);
+   $statement->bindParam(':Password',$Password);
    $statement->execute();
    if ($statement->rowCount() == 1) {
-       $_SESSION['NOMBRE'] = $statement['Nombreusu']." ".statement['Apellidousu'];
-       $_SESSION['id_usuario'] = $statement['id_usuario'];
-       $_SESSION['Perfil']= $statement['Perfil'];
+         $result= $statement->fetch();
+       $_SESSION['NOMBRE'] = $result['Nombreusu']." ".$result['Apellidousu'];
+       $_SESSION['id_usuario'] = $result['id_usuario'];
+       $_SESSION['Perfil']= $result['Perfil'];
        return true;
                
             }
@@ -47,7 +47,7 @@ class Usuario extends Conexion
         if($_SESSION['id_usuario'] != null)
         {
             if($_SESSION['Perfil']=='Administrador'){
-                header('Location:../../Estudiantes/pages/index.php');
+                header('Location:../../Administrador/pages/index.php');
             }else{
                 header('Location:../../index.php');
             }
