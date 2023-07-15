@@ -1,9 +1,8 @@
 <?php
 include_once('Conexion.php');
-class Estudiantes
-{
+class Estudiantes extends Conexion
+
 	
-extends Conexion
 {
 public function __construct(){
 

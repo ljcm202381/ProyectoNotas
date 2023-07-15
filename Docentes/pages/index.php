@@ -1,8 +1,13 @@
 <?php
+require_once('../../Usuarios/modelos/login.php');
+error_reporting(0);
+$model = new Usuario();
+$model->validarSesion();
+if(!$_SESSION["validar"]){
+    print "<script>alert(\"es para usuarios registrados.\");window.location='../../index.php';</script>";
+}
 
-//require_once('../../modelos/login.php');
-//$obj = new Usuario();
-//$obj->validarsesion();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,17 +26,15 @@
     <img src="../../img/colegio.png" alt="Logo" style="width:40px;">
   </a>
    <ul class="navbar-nav">
-    <li class="nav-item active">
-        <a class="nav-link" href="../pages/agregar.php">Usuarios</a>
-    </li>
+   
     <li class="nav-item">
         <a class="nav-link" href="../../Estudiantes/pages/agregar.php">Estudiantes</a>
     </li>
      <li class="nav-item">
         <a class="nav-link" href="../../Materias/pages/agregar.php">Materias</a>
     </li>
-     <li class="nav-item">
-       <a href="cerrar_sesion.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+      <li class="nav-item">
+       <a href="../../Usuarios/controladores/salir.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true" type="submit" name="salir"></span> Cerrar Sesion</button></a>
             
     </li>
   
@@ -41,7 +44,7 @@
 </nav>
  
         <br>
-      
+      <h2>BIENVENIDO:<?php echo $_SESSION['NOMBRE'];?></h2>
         <div class="container">
  <h1 style="color:blue;text-align:center;">LISTADO DE DOCENTES</h1>
           

@@ -1,3 +1,14 @@
+<?php
+require_once('../../Usuarios/modelos/login.php');
+error_reporting(0);
+$model = new Usuario();
+$model->validarSesion();
+if(!$_SESSION["validar"]){
+    print "<script>alert(\"es para usuarios registrados.\");window.location='../../index.php';</script>";
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +53,7 @@
  
         <br>
       
-
+<h2>BIENVENIDO:<?php echo $_SESSION['NOMBRE'];?></h2>
 <div class="container">
   <h2>EDITAR DOCENTE</h2>
   <?php

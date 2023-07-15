@@ -53,7 +53,7 @@ if(!$_SESSION["validar"]){
  
         <br>
       
-
+<h2>BIENVENIDO:<?php echo $_SESSION['NOMBRE'];?></h2>
 <div class="container">
   <h2>REGISTRO DE USUARIOS </h2>
   <form action="../controladores/agregarusuarios.php" method="post">

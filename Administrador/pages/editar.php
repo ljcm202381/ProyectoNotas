@@ -51,6 +51,7 @@ if(!$_SESSION["validar"]){
      </ul>
 </nav>
  <body>
+  <h2>BIENVENIDO:<?php echo $_SESSION['NOMBRE'];?></h2>
        <div class="container">
   <h2>Actualizar datos </h2>
   <?php

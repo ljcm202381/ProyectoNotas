@@ -1,9 +1,10 @@
 <?php
 require_once('../modelos/administrador.php');
 require_once('../../Usuarios/modelos/login.php');
+error_reporting(0);
 $musuario = new Administrador();
 $Id = $_GET['Id'];
-error_reporting(0);
+
 $model = new Usuario();
 $model->validarSesion();
 if(!$_SESSION["validar"]){
@@ -51,7 +52,7 @@ if(!$_SESSION["validar"]){
 </nav>
  
         <br>
-      
+   <h2>BIENVENIDO:<?php echo $_SESSION['NOMBRE'];?></h2>   
 <h3>Eliminar usuario</h3>
 <form method="POST" action="../controladores/eliminarusuarios.php">
     <label for="id">ID del usuario:</label>

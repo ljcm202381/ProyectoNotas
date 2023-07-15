@@ -5,8 +5,8 @@ if($_POST)
 {
 	$estu = new Estudiantes();
 	$id = $_POST['Id'];
-	$Nombreusu= $_POST['txtnombre'];
-	$Apellidousu=$_POST['txtapellido'];
+	$Nombreusu= $_POST['txtnombreest'];
+	$Apellidousu=$_POST['txtapellidoest'];
 	$Usuariousu=$_POST['txtusuario'];
 	$Passwordusu=MD5($_POST['txtcontrasena']);
 	$Perfil=$_POST['txtperfil'];

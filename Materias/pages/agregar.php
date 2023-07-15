@@ -1,3 +1,14 @@
+<?php
+require_once('../../Usuarios/modelos/login.php');
+error_reporting(0);
+$model = new Usuario();
+$model->validarSesion();
+if(!$_SESSION["validar"]){
+    print "<script>alert(\"es para usuarios registrados.\");window.location='../../index.php';</script>";
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,18 +41,17 @@
      <li class="nav-item">
         <a class="nav-link" href="">Materias</a>
     </li>
-     <li class="nav-item">
-       <a href="cerrar_sesion.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+      <li class="nav-item">
+       <a href="../../Usuarios/controladores/salir.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true" type="submit" name="salir"></span> Cerrar Sesion</button></a>
             
     </li>
-  
         
   
      </ul>
 </nav>
  
         <br>
-      
+       <h2>BIENVENIDO:<?php echo $_SESSION['NOMBRE'];?></h2>
 
 <div class="container">
   <h2>REGISTRO DE MATERIAS </h2>
