@@ -1,8 +1,13 @@
 <?php
 require_once('../../Usuarios/modelos/login.php');
+error_reporting(0);
 $model = new Usuario();
-//$model->validaradmin();
-$model->validarsesion();
+$model->validarSesion();
+if(!$_SESSION["validar"]){
+    print "<script>alert(\"es para usuarios registrados.\");window.location='../../index.php';</script>";
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -34,18 +39,28 @@ $model->validarsesion();
      <li class="nav-item">
         <a class="nav-link" href="">Materias</a>
     </li>
-     <li class="nav-item">
-       <a href="cerrar_sesion.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+     
+    <li class="nav-item">
+      <a href="agregar.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true" name="salir"></span> Crear usuario</button></a></li>
+
+      <li class="nav-item">
+       <a href="../../Usuarios/controladores/salir.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true" type="submit" name="salir"></span> Cerrar Sesion</button></a>
             
     </li>
-      
      </ul>
 </nav>
  
         <br>
+        
+               <br>
+        <h2>BIENVENIDO:<?php echo $_SESSION['NOMBRE'];?></h2>
         <h1>Lista de usuarios</h1>
+
+        <div class="container">
       <div class="container">
+
         <div col-auto-mt-5>
+
         <table class="table table-dark table-hover">
             <tr>
                 <th>ID USUARIO</th>

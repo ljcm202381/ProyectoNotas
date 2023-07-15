@@ -1,3 +1,14 @@
+<?php
+require_once('../../Usuarios/modelos/login.php');
+error_reporting(0);
+$model = new Usuario();
+$model->validarSesion();
+if(!$_SESSION["validar"]){
+    print "<script>alert(\"es para usuarios registrados.\");window.location='../../index.php';</script>";
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +29,7 @@
   </a>
    <ul class="navbar-nav">
     <li class="nav-item active">
-        <a class="nav-link" href="../pages/agregar.php">Usuarios</a>
+        <a class="nav-link" href="../pages/index.php">Usuarios</a>
     </li>
   <ul class="navbar-nav">
     <li class="nav-item active">

@@ -35,7 +35,7 @@
         <a class="nav-link" href="../../Materias/pages/agregar.php">Materias</a>
     </li>
      <li class="nav-item">
-       <a href="cerrar_sesion.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+       <a href=""><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true" name="salir"></span> Cerrar Sesion</button></a>
             
     </li>
   
@@ -46,7 +46,6 @@
  
         <br>
       
-        <div class="container">
  <h1 style="color:blue;text-align:center;">LISTADO DE ESTUDIANTES</h1>
           
   <div class="content" style="text-align:center;">

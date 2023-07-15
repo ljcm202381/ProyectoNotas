@@ -1,8 +1,14 @@
 <?php
 require_once('../modelos/administrador.php');
-
+require_once('../../Usuarios/modelos/login.php');
 $musuario = new Administrador();
 $Id = $_GET['Id'];
+error_reporting(0);
+$model = new Usuario();
+$model->validarSesion();
+if(!$_SESSION["validar"]){
+    print "<script>alert(\"es para usuarios registrados.\");window.location='../../index.php';</script>";
+}
 
 ?>
 <!DOCTYPE html>

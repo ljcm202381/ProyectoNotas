@@ -3,14 +3,17 @@ include_once('../../Conexion.php');
 
 class Administrador extends Conexion
 {
+
 public function __construct(){
 
  	$this->db=parent::__construct();
+    
  }
 
 //funcion para registrar los usuarios
 public function addadmi($Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil,$Estadousu)
 {
+    $hashedPassword = password_hash($Passwordusu, PASSWORD_DEFAULT);
    //verificar de que no exista un usuario en la bd 
    $sql1 = "SELECT * FROM usuarios WHERE Usuario = '$Usuariousu'";
     $Resultado=$this->db->query($sql1);
@@ -24,12 +27,12 @@ public function addadmi($Nombreusu,$Apellidousu,$Usuariousu,$Passwordusu,$Perfil
     }else
     {
    //crear la sentencia sql
-   $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario,Password,Perfil,Estado)values(:Nombreusu,:Apellidousu,:Usuariousu,:Passwordusu,:Perfil,:Estadousu)");
+   $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario,Password,Perfil,Estado)values(:Nombreusu,:Apellidousu,:Usuariousu,:hashedPassword,:Perfil,:Estadousu)");
 
    $statement->bindParam(':Nombreusu',$Nombreusu);
    $statement->bindParam(':Apellidousu',$Apellidousu);
    $statement->bindParam(':Usuariousu',$Usuariousu);
-   $statement->bindParam(':Passwordusu',$Passwordusu);
+   $statement->bindParam(':hashedPassword',$hashedPassword);
    $statement->bindParam(':Perfil',$Perfil);
    $statement->bindParam(':Estadousu',$Estadousu);
    if($statement->execute())

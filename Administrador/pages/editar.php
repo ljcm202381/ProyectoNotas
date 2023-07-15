@@ -1,3 +1,14 @@
+<?php
+require_once('../../Usuarios/modelos/login.php');
+error_reporting(0);
+$model = new Usuario();
+$model->validarSesion();
+if(!$_SESSION["validar"]){
+    print "<script>alert(\"es para usuarios registrados.\");window.location='../../index.php';</script>";
+}
+
+
+?>
 <!DOCTYPE html>
 
 
@@ -18,7 +29,7 @@
   </a>
    <ul class="navbar-nav">
     <li class="nav-item active">
-        <a class="nav-link" href="">Usuarios</a>
+        <a class="nav-link" href="agregar.php">Usuarios</a>
     </li>
   <ul class="navbar-nav">
     <li class="nav-item active">
@@ -31,7 +42,7 @@
         <a class="nav-link" href="">Materias</a>
     </li>
      <li class="nav-item">
-       <a href="cerrar_sesion.php"><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
+       <a href=""><button class="btn btn-danger col col align-self-end"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cerrar Sesion</button></a>
             
     </li>
   
